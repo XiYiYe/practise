@@ -7,10 +7,12 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.i18n.LocaleContextHolder;
 import org.springframework.context.support.ResourceBundleMessageSource;
+import org.springframework.validation.beanvalidation.LocalValidatorFactoryBean;
 import org.springframework.web.servlet.LocaleResolver;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.validation.Validator;
 import java.nio.charset.StandardCharsets;
 import java.util.Locale;
 
@@ -47,5 +49,16 @@ public class MyLocalResolve implements LocaleResolver {
         messageSource.setBasenames("message", "i18n/message");
         messageSource.setDefaultEncoding(StandardCharsets.UTF_8.name());
         return messageSource;
+    }
+
+    /**
+     * 支持hibernate国际化
+     * @return
+     */
+    @Bean
+    public Validator getValidator() {
+        LocalValidatorFactoryBean validator = new LocalValidatorFactoryBean();
+        validator.setValidationMessageSource(messageSource());
+        return validator;
     }
 }

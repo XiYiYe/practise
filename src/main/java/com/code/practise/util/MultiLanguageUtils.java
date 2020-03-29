@@ -1,4 +1,4 @@
-package com.code.practice.util;
+package com.code.practise.util;
 
 import org.springframework.context.MessageSource;
 import org.springframework.context.i18n.LocaleContextHolder;

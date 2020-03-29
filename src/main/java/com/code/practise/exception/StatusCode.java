@@ -1,4 +1,4 @@
-package com.code.practice.exception;
+package com.code.practise.exception;
 
 /**
  * 状态码

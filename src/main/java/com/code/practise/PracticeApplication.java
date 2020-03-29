@@ -1,6 +1,5 @@
-package com.code.practice;
+package com.code.practise;
 
-import lombok.extern.slf4j.Slf4j;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 

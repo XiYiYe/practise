@@ -1,4 +1,4 @@
-package com.code.practice.config;
+package com.code.practise.config;
 
 import feign.RequestInterceptor;
 import feign.RequestTemplate;

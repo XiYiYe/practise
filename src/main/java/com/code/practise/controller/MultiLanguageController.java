@@ -1,6 +1,6 @@
-package com.code.practice.controller;
+package com.code.practise.controller;
 
-import com.code.practice.util.MultiLanguageUtils;
+import com.code.practise.util.MultiLanguageUtils;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;

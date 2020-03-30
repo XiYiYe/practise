@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RestController;
  */
 @Slf4j
 @RestController
-@RequestMapping("/ ")
+@RequestMapping("/api")
 public class MultiLanguageController {
 
     @GetMapping("/query/result")

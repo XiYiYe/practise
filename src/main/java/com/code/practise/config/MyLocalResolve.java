@@ -15,7 +15,7 @@ import java.nio.charset.StandardCharsets;
 import java.util.Locale;
 
 /**
- * 自定义resolve
+ * 国际化自定义resolve
  */
 @Configuration
 public class MyLocalResolve implements LocaleResolver {

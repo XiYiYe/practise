@@ -1,8 +1,10 @@
 package com.code.practise.exception;
 
 import lombok.Getter;
+import lombok.ToString;
 
 @Getter
+@ToString
 public enum StatusCodeEnum {
 
     /**

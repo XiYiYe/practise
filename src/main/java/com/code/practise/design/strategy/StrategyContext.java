@@ -33,7 +33,7 @@ public class StrategyContext implements ApplicationContextAware {
         for (Map.Entry<String, Object> entry : map.entrySet()) {
             Object object = entry.getValue();
             Type type = object.getClass().getAnnotation(Type.class);
-            beanFactory.put(type.value().getType().toString(), type);
+            beanFactory.put(type.value().getType().toString(), object);
         }
     }
 

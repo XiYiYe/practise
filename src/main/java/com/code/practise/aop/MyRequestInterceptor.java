@@ -1,8 +1,7 @@
-package com.code.practise.config;
+package com.code.practise.aop;
 
 import feign.RequestInterceptor;
 import feign.RequestTemplate;
-import org.springframework.context.annotation.Configuration;
 import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;
 
@@ -12,7 +11,6 @@ import java.util.Enumeration;
 /**
  * feign,restTemplate远程调用请求头处理
  */
-@Configuration
 public class MyRequestInterceptor implements RequestInterceptor {
 
     @Override

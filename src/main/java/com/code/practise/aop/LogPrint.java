@@ -1,4 +1,4 @@
-package com.code.practise.config;
+package com.code.practise.aop;
 
 import com.code.practise.bean.LogBO;
 import io.swagger.annotations.ApiOperation;

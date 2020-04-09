@@ -1,5 +1,7 @@
 package com.code.practise.exception;
 
+import com.code.practise.response.Result;
+import com.code.practise.response.StatusCodeEnum;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;

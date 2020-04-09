@@ -1,7 +1,7 @@
 package com.code.practise.design.strategy;
 
 import com.code.practise.exception.CustomizedException;
-import com.code.practise.exception.StatusCodeEnum;
+import com.code.practise.response.StatusCodeEnum;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.BeansException;
 import org.springframework.context.ApplicationContext;

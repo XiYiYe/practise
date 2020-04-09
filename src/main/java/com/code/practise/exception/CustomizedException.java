@@ -1,5 +1,6 @@
 package com.code.practise.exception;
 
+import com.code.practise.response.StatusCodeEnum;
 import lombok.Data;
 
 /**

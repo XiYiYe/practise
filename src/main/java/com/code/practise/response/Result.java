@@ -1,4 +1,4 @@
-package com.code.practise.exception;
+package com.code.practise.response;
 
 import lombok.Data;
 import lombok.NoArgsConstructor;

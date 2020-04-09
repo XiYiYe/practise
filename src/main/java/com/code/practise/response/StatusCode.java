@@ -1,4 +1,4 @@
-package com.code.practise.exception;
+package com.code.practise.response;
 
 /**
  * 状态码
@@ -6,7 +6,7 @@ package com.code.practise.exception;
 public interface StatusCode {
 
     /**
-     * 获取coed
+     * 获取code
      * @return
      */
     Integer getCode();

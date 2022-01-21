@@ -1,7 +1,7 @@
 package com.code.dora.design.strategy;
 
 import com.code.dora.exception.CustomizedException;
-import com.code.dora.response.StatusCodeEnum;
+import com.code.dora.result.StatusCodeEnum;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.BeansException;
 import org.springframework.context.ApplicationContext;

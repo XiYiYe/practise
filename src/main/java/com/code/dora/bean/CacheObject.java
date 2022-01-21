@@ -1,11 +1,11 @@
-package com.code.dora.constant;
+package com.code.dora.bean;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 /**
- * @author by 叶雪辉
+ * @author by Dora
  * @Date 2022/1/21 15:40
  * @Description
  */

@@ -1,4 +1,4 @@
-package com.code.dora.response;
+package com.code.dora.result;
 
 import lombok.Getter;
 import lombok.ToString;

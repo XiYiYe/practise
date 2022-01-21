@@ -1,7 +1,7 @@
 package com.code.dora.util;
 
 import com.code.dora.constant.CacheTypeEnum;
-import com.code.dora.constant.CacheObject;
+import com.code.dora.bean.CacheObject;
 import com.google.common.cache.Cache;
 import com.google.common.cache.CacheBuilder;
 import lombok.extern.slf4j.Slf4j;

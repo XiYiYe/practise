@@ -1,6 +1,6 @@
 package com.code.dora.exception;
 
-import com.code.dora.response.StatusCodeEnum;
+import com.code.dora.result.StatusCodeEnum;
 import lombok.Data;
 
 /**

@@ -1,7 +1,7 @@
 package com.code.dora.exception;
 
-import com.code.dora.response.Result;
-import com.code.dora.response.StatusCodeEnum;
+import com.code.dora.result.Result;
+import com.code.dora.result.StatusCodeEnum;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;

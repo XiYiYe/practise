@@ -12,7 +12,12 @@ public enum StatusCodeEnum {
      */
     SUCCESS(200, "SUCCESS"),
 
-    FAIL(500, "FAIL"),
+    /**
+     * 非法的参数
+     */
+    ILLEGAL_PARAM(404, "param is illegal"),
+
+    FAIL(500, "EOORO"),
     ;
 
     private Integer code;

@@ -25,7 +25,7 @@ public class LocalCacheUtils {
 
     private static final Object LOCK = new Object();
 
-    public <T> T get(CacheTypeEnum cacheTypeEnum, String key, Supplier<T> supplier) {
+    public static <T> T get(CacheTypeEnum cacheTypeEnum, String key, Supplier<T> supplier) {
         boolean switchOn = switchOn(cacheTypeEnum);
         if (!switchOn) {
             if (log.isDebugEnabled()) {
@@ -35,7 +35,7 @@ public class LocalCacheUtils {
         return getCache(cacheTypeEnum, key, supplier);
     }
 
-    public <T> T getCache(CacheTypeEnum cacheTypeEnum, String key, Supplier<T> supplier) {
+    public static  <T> T getCache(CacheTypeEnum cacheTypeEnum, String key, Supplier<T> supplier) {
         AtomicBoolean atomicBoolean = new AtomicBoolean(true);
         Cache<String, CacheObject> cache = getCache(cacheTypeEnum, false);
         CacheObject cacheObject;
@@ -57,7 +57,6 @@ public class LocalCacheUtils {
         }
         return (T) cacheObject.getValue();
     }
-
 
     public static Cache<String, CacheObject> getCache(CacheTypeEnum cacheTypeEnum, boolean allowCacheNull) {
         Cache<String, CacheObject> cacheObject = LOCAL_CACHE_MAP.get(cacheTypeEnum.name());
@@ -83,7 +82,7 @@ public class LocalCacheUtils {
      * @param cacheTypeEnum 缓存业务
      * @return 开关
      */
-    private boolean switchOn(CacheTypeEnum cacheTypeEnum) {
+    private static boolean switchOn(CacheTypeEnum cacheTypeEnum) {
         String preKey = cacheTypeEnum.getBiz();
         return BooleanUtils.isTrue(Boolean.getBoolean(System.getProperty(preKey)));
     }

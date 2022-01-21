@@ -19,6 +19,13 @@ public class CustomizedException extends RuntimeException {
         this.message = statusCodeEnum.getMessage();
     }
 
+    public CustomizedException(Integer code, String message){
+        super(message);
+        this.code = code;
+        this.message = message;
+    }
+
+
     public CustomizedException(Throwable throwable) {
         super(throwable);
     }

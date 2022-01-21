@@ -30,15 +30,15 @@ public class HttpClientFactory {
 
     private static CloseableHttpClient httpClient;
 
-    private static PoolingHttpClientConnectionManager manager;
+    private static final PoolingHttpClientConnectionManager MANAGER;
 
-    private static RequestConfig requestConfig;
+    private static final RequestConfig REQUEST_CONFIG;
 
     static {
-        manager = new PoolingHttpClientConnectionManager();
-        manager.setMaxTotal(MAX_CONN);
-        manager.setDefaultMaxPerRoute(MAX_PER_ROUTE);
-        requestConfig = RequestConfig.custom().setConnectionRequestTimeout(CONNECT_TIMEOUT)
+        MANAGER = new PoolingHttpClientConnectionManager();
+        MANAGER.setMaxTotal(MAX_CONN);
+        MANAGER.setDefaultMaxPerRoute(MAX_PER_ROUTE);
+        REQUEST_CONFIG = RequestConfig.custom().setConnectionRequestTimeout(CONNECT_TIMEOUT)
                 .setConnectTimeout(CONNECT_TIMEOUT)
                 .setSocketTimeout(SOCKET_TIMEOUT).build();
     }
@@ -51,7 +51,7 @@ public class HttpClientFactory {
         if (httpClient == null) {
             synchronized (HttpClientUtils.class) {
                 if (httpClient == null) {
-                    httpClient = HttpClients.custom().setConnectionManager(manager).setDefaultRequestConfig(requestConfig).build();
+                    httpClient = HttpClients.custom().setConnectionManager(MANAGER).setDefaultRequestConfig(REQUEST_CONFIG).build();
                 }
             }
         }

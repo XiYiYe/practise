@@ -1,9 +1,9 @@
-package com.code.dora.result;
+package com.code.dora.constant;
 
 /**
  * 状态码
  */
-public interface StatusCode {
+public interface ResultCode {
 
     /**
      * 获取code

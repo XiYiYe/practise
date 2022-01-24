@@ -1,4 +1,4 @@
-package com.code.dora.job;
+package com.code.dora.concurrent;
 
 import org.springframework.scheduling.annotation.EnableScheduling;
 import org.springframework.scheduling.annotation.Scheduled;

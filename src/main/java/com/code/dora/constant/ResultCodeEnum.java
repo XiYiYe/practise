@@ -1,11 +1,16 @@
-package com.code.dora.result;
+package com.code.dora.constant;
 
 import lombok.Getter;
 import lombok.ToString;
 
+/**
+ * @author by Dora
+ * @date 2022/1/24 10:30
+ * 状态码
+ */
 @Getter
 @ToString
-public enum StatusCodeEnum {
+public enum ResultCodeEnum implements ResultCode {
 
     /**
      * 状态码
@@ -17,6 +22,9 @@ public enum StatusCodeEnum {
      */
     ILLEGAL_PARAM(404, "param is illegal"),
 
+    /**
+     * 服务器异常
+     */
     FAIL(500, "EOORO"),
     ;
 
@@ -24,7 +32,7 @@ public enum StatusCodeEnum {
 
     private String message;
 
-    StatusCodeEnum(Integer code, String message) {
+    ResultCodeEnum(Integer code, String message) {
         this.code = code;
         this.message = message;
     }

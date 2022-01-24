@@ -2,6 +2,8 @@ package com.code.dora.util;
 
 import com.code.dora.constant.CacheTypeEnum;
 import com.code.dora.bean.CacheObject;
+import com.code.dora.exception.CustomizedException;
+import com.code.dora.constant.ResultCodeEnum;
 import com.google.common.cache.Cache;
 import com.google.common.cache.CacheBuilder;
 import lombok.extern.slf4j.Slf4j;
@@ -16,7 +18,6 @@ import java.util.function.Supplier;
 /**
  * @author by Dora
  * @Date 2022/1/21 15:25
- * @Description
  */
 @Slf4j
 public class LocalCacheUtils {
@@ -35,7 +36,7 @@ public class LocalCacheUtils {
         return getCache(cacheTypeEnum, key, supplier);
     }
 
-    public static  <T> T getCache(CacheTypeEnum cacheTypeEnum, String key, Supplier<T> supplier) {
+    public static <T> T getCache(CacheTypeEnum cacheTypeEnum, String key, Supplier<T> supplier) {
         AtomicBoolean atomicBoolean = new AtomicBoolean(true);
         Cache<String, CacheObject> cache = getCache(cacheTypeEnum, false);
         CacheObject cacheObject;
@@ -50,7 +51,7 @@ public class LocalCacheUtils {
             });
         } catch (ExecutionException ex) {
             log.error("local cache exception, biz {}, key {}", cacheTypeEnum.name(), key);
-            throw new RuntimeException();
+            throw new CustomizedException(ResultCodeEnum.FAIL.getCode(), "get cache error");
         }
         if (atomicBoolean.get() && log.isDebugEnabled()) {
             log.debug("local cache hit, biz {}, key {}", cacheTypeEnum.name(), key);

@@ -1,7 +1,7 @@
 package com.code.dora.design.strategy;
 
 import com.code.dora.exception.CustomizedException;
-import com.code.dora.result.StatusCodeEnum;
+import com.code.dora.constant.ResultCodeEnum;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.BeansException;
 import org.springframework.context.ApplicationContext;
@@ -51,7 +51,7 @@ public class StrategyContext implements ApplicationContextAware {
         Object object = beanFactory.get(orderEnum.getType().toString());
         if (object == null) {
             log.warn("can not find execute strategy bean");
-            throw new CustomizedException(StatusCodeEnum.FAIL);
+            throw new CustomizedException(ResultCodeEnum.FAIL);
         }
         return object;
     }

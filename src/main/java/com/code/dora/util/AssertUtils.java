@@ -1,7 +1,7 @@
 package com.code.dora.util;
 
 import com.code.dora.exception.CustomizedException;
-import com.code.dora.result.StatusCodeEnum;
+import com.code.dora.constant.ResultCodeEnum;
 import org.apache.commons.lang3.BooleanUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.util.CollectionUtils;
@@ -16,23 +16,23 @@ import java.util.Map;
  */
 public class AssertUtils {
 
-    public static void isNoNull(Object object, StatusCodeEnum resultEnum) {
+    public static void isNoNull(Object object, ResultCodeEnum resultEnum) {
         if(object == null) {
             throw new CustomizedException(resultEnum);
         }
     }
 
     public static void isNoNull(Object object) {
-        isNoNull(object, StatusCodeEnum.ILLEGAL_PARAM);
+        isNoNull(object, ResultCodeEnum.ILLEGAL_PARAM);
     }
 
     public static void isNoNull(Object object, String message) {
         if (object == null) {
-            throw new CustomizedException(StatusCodeEnum.ILLEGAL_PARAM.getCode(), message);
+            throw new CustomizedException(ResultCodeEnum.ILLEGAL_PARAM.getCode(), message);
         }
     }
 
-    public static void isNull(Object object, StatusCodeEnum resultEnum) {
+    public static void isNull(Object object, ResultCodeEnum resultEnum) {
         if(object != null) {
             throw new CustomizedException(resultEnum);
         }
@@ -40,27 +40,27 @@ public class AssertUtils {
 
     public static void isNull(Object object) {
         if(object != null) {
-            throw new CustomizedException(StatusCodeEnum.ILLEGAL_PARAM);
+            throw new CustomizedException(ResultCodeEnum.ILLEGAL_PARAM);
         }
     }
 
     public static void isNull(Object object, String message) {
         if(object != null) {
-            throw new CustomizedException(StatusCodeEnum.ILLEGAL_PARAM.getCode(), message);
+            throw new CustomizedException(ResultCodeEnum.ILLEGAL_PARAM.getCode(), message);
         }
     }
 
-    public static void isNotBlank(String s, StatusCodeEnum resultEnum) {
+    public static void isNotBlank(String s, ResultCodeEnum resultEnum) {
         if(StringUtils.isBlank(s)) {
             throw new CustomizedException(resultEnum);
         }
     }
 
     public static void isNotBlank(String s){
-        isNoNull(s, StatusCodeEnum.ILLEGAL_PARAM);
+        isNoNull(s, ResultCodeEnum.ILLEGAL_PARAM);
     }
 
-    public static void isEqual(Object object1, Object object2, StatusCodeEnum resultEnum) {
+    public static void isEqual(Object object1, Object object2, ResultCodeEnum resultEnum) {
         if(object1 == null && object2 == null) {
             return;
         }
@@ -70,7 +70,7 @@ public class AssertUtils {
         throw new CustomizedException(resultEnum);
     }
 
-    public static void isNotEqual(Object object1, Object object2, StatusCodeEnum resultEnum) {
+    public static void isNotEqual(Object object1, Object object2, ResultCodeEnum resultEnum) {
         if(object1 == null && object2 == null) {
             throw new CustomizedException(resultEnum);
         }
@@ -80,46 +80,46 @@ public class AssertUtils {
     }
 
     public static void isEqual(Object object1, Object object2) {
-        isEqual(object1, object2, StatusCodeEnum.FAIL);
+        isEqual(object1, object2, ResultCodeEnum.FAIL);
     }
 
     public static void isNotEqual(Object object1, Object object2) {
-        isNotEqual(object1, object2, StatusCodeEnum.FAIL);
+        isNotEqual(object1, object2, ResultCodeEnum.FAIL);
     }
 
     public static void isNotEmpty(Collection<?> collection) {
-        isNotEmpty(collection, StatusCodeEnum.FAIL);
+        isNotEmpty(collection, ResultCodeEnum.FAIL);
     }
 
     public static void isNotEmpty(Collection<?> collection, String message) {
         if (CollectionUtils.isEmpty(collection)) {
-            throw new CustomizedException(StatusCodeEnum.FAIL.getCode(), message);
+            throw new CustomizedException(ResultCodeEnum.FAIL.getCode(), message);
         }
     }
 
     public static void isTrue(Boolean status) {
         if (BooleanUtils.isNotTrue(status)) {
-            throw new CustomizedException(StatusCodeEnum.FAIL);
+            throw new CustomizedException(ResultCodeEnum.FAIL);
         }
     }
 
     public static void isNotEmpty(Map map) {
-        isNotEmpty(map, StatusCodeEnum.FAIL);
+        isNotEmpty(map, ResultCodeEnum.FAIL);
     }
 
     public static void isNotEmpty(Map map, String message) {
         if (map == null || map.isEmpty()) {
-            throw new CustomizedException(StatusCodeEnum.FAIL.getCode(), message);
+            throw new CustomizedException(ResultCodeEnum.FAIL.getCode(), message);
         }
     }
 
-    public static void isNotEmpty(Map map, StatusCodeEnum resultEnum) {
+    public static void isNotEmpty(Map map, ResultCodeEnum resultEnum) {
         if (map == null || map.isEmpty()) {
             throw new CustomizedException(resultEnum);
         }
     }
 
-    public static void isNotEmpty(Collection<?> collection, StatusCodeEnum resultEnum) {
+    public static void isNotEmpty(Collection<?> collection, ResultCodeEnum resultEnum) {
         if (CollectionUtils.isEmpty(collection)) {
             throw new CustomizedException(resultEnum);
         }

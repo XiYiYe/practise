@@ -1,6 +1,6 @@
 package com.code.dora.exception;
 
-import com.code.dora.result.StatusCodeEnum;
+import com.code.dora.constant.ResultCodeEnum;
 import lombok.Data;
 
 /**
@@ -13,10 +13,10 @@ public class CustomizedException extends RuntimeException {
 
     private String message;
 
-    public CustomizedException(StatusCodeEnum statusCodeEnum){
-        super(statusCodeEnum.getMessage());
-        this.code = statusCodeEnum.getCode();
-        this.message = statusCodeEnum.getMessage();
+    public CustomizedException(ResultCodeEnum resultCodeEnum){
+        super(resultCodeEnum.getMessage());
+        this.code = resultCodeEnum.getCode();
+        this.message = resultCodeEnum.getMessage();
     }
 
     public CustomizedException(Integer code, String message){

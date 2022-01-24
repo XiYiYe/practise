@@ -10,9 +10,9 @@ import java.util.Collection;
 import java.util.Map;
 
 /**
- * @author by 叶雪辉
+ * @author by Dora
  * @Date 2021/10/9 10:46
- * @Description
+ * @Description 断言类
  */
 public class AssertUtils {
 
@@ -56,8 +56,17 @@ public class AssertUtils {
         }
     }
 
-    public static void isNotBlank(String s){
+    public static void isNotBlank(String s) {
         isNoNull(s, ResultCodeEnum.ILLEGAL_PARAM);
+    }
+
+    public static void isNotBlank(String... str) {
+        if (str == null) {
+            throw new CustomizedException(ResultCodeEnum.ILLEGAL_PARAM);
+        }
+        for (String s : str) {
+            isNoNull(s, ResultCodeEnum.ILLEGAL_PARAM);
+        }
     }
 
     public static void isEqual(Object object1, Object object2, ResultCodeEnum resultEnum) {

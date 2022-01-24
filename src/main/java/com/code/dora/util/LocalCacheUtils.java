@@ -24,16 +24,41 @@ public class LocalCacheUtils {
 
     private static final Map<String, Cache<String, CacheObject>> LOCAL_CACHE_MAP = new ConcurrentHashMap<>(16);
 
+    /**
+     * 锁
+     */
     private static final Object LOCK = new Object();
 
+    /**
+     * 查询缓存
+     *
+     * @param cacheTypeEnum 缓存类型
+     * @param key           缓存key
+     * @param supplier      回调函数
+     * @param <T>           类型
+     * @return 结果
+     */
     public static <T> T get(CacheTypeEnum cacheTypeEnum, String key, Supplier<T> supplier) {
         boolean switchOn = switchOn(cacheTypeEnum);
         if (!switchOn) {
             if (log.isDebugEnabled()) {
                 log.debug("local cache is closed, biz {}", cacheTypeEnum.name());
             }
+            return supplier == null ? null : supplier.get();
         }
         return getCache(cacheTypeEnum, key, supplier);
+    }
+
+    /**
+     * 清理缓存
+     *
+     * @param cacheTypeEnum 缓存类型
+     */
+    public static void cleanCache(CacheTypeEnum cacheTypeEnum) {
+        Cache<String, CacheObject> cache = getCache(cacheTypeEnum, true);
+        if (cache != null) {
+            cache.invalidateAll();
+        }
     }
 
     public static <T> T getCache(CacheTypeEnum cacheTypeEnum, String key, Supplier<T> supplier) {
@@ -45,8 +70,8 @@ public class LocalCacheUtils {
                 if (log.isDebugEnabled()) {
                     log.debug("local cache not hit, cacheBiz {} cacheKey {}", cacheTypeEnum.name(), key);
                 }
-                atomicBoolean.set(false);
                 T value = supplier == null ? null : supplier.get();
+                atomicBoolean.set(false);
                 return new CacheObject(value, cacheTypeEnum.name());
             });
         } catch (ExecutionException ex) {
@@ -77,9 +102,21 @@ public class LocalCacheUtils {
         }
     }
 
+    /**
+     * 构建缓存key
+     *
+     * @param keys key
+     * @return 结果
+     */
+    public static String buildKey(String... keys) {
+        AssertUtils.isNotBlank(keys);
+        return String.join(":", keys);
+    }
+
 
     /**
      * 这里应该是读取统一配置中心配置的缓存key的bool值，先暂时这样写
+     *
      * @param cacheTypeEnum 缓存业务
      * @return 开关
      */

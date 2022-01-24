@@ -1,4 +1,4 @@
-package com.code.dora.concurrent;
+package com.code.dora.executor;
 
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.scheduling.annotation.Async;
@@ -8,6 +8,11 @@ import org.springframework.stereotype.Service;
 import java.util.concurrent.Callable;
 import java.util.concurrent.Future;
 
+/**
+ * @author by Dora
+ * @Date 2022/01/23 10:46
+ * @Description 线程池工具类
+ */
 @Service
 @Slf4j
 public class ExecutorService <V> {

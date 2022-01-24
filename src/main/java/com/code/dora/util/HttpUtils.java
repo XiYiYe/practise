@@ -17,6 +17,11 @@ import java.io.IOException;
 import java.nio.charset.StandardCharsets;
 import java.util.Map;
 
+/**
+ * @author by Dora
+ * @Date 2021/10/9 10:46
+ * @Description http工具类
+ */
 @Component
 @Slf4j
 public class HttpUtils {
@@ -25,11 +30,11 @@ public class HttpUtils {
 
     /**
      * restTemplate发送请求
-     * @param header
-     * @param url
-     * @param clazz
-     * @param <T>
-     * @return
+     * @param header 请求头
+     * @param url url
+     * @param clazz 转换对象
+     * @param <T> 泛型
+     * @return 结果
      */
     public static <T> T get(Map<String, String> header, String url, Class<T> clazz) {
         HttpHeaders httpHeaders = new HttpHeaders();
@@ -51,9 +56,9 @@ public class HttpUtils {
 
     /**
      * httpclient连接池发送请求
-     * @param url
-     * @param header
-     * @return
+     * @param url ur
+     * @param header 请求头
+     * @return 结果
      */
     public static String get(String url, Map<String, String> header) {
         CloseableHttpClient httpClient = HttpClientFactory.getHttpClient();
@@ -68,8 +73,4 @@ public class HttpUtils {
         }
         return null;
     }
-
-
-
-
 }

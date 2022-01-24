@@ -17,11 +17,6 @@ import java.util.function.Function;
  */
 public class Pages {
 
-
-    public static <T> PageResult<T> empty() {
-        return PageResult.getSuccessResult(Collections.emptyList());
-    }
-
     /**
      * 单页查询
      *
